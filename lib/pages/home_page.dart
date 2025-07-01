@@ -53,7 +53,7 @@ class _HomePageState extends State<HomePage> {
                     Column(
                       children: [
                         Text(
-                          price.toStringAsFixed(2),
+                          "\$${price.toStringAsFixed(2)}",
                           style: TextStyle(
                             fontSize: 30,
                             fontWeight: FontWeight.w600,
@@ -68,7 +68,27 @@ class _HomePageState extends State<HomePage> {
 
                 // Sizes
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
+                    Column(
+                      children: [
+                        SizedBox(
+                          height: 75,
+                          width: 75,
+                          child: CupertinoButton(
+                            color: Color(choice == "S"?0xff56A568:0xffEDEDED),
+                            borderRadius: BorderRadius.circular(100),
+                            onPressed: () {
+                              price = 20;
+                              choice = "S";
+                              setState(() {});
+                            },
+                            child: Text("S"),
+                          ),
+                        ),
+                        Text("Small"),
+                      ],
+                    ),
                     Column(
                       children: [
                         SizedBox(
@@ -78,10 +98,40 @@ class _HomePageState extends State<HomePage> {
                             color: Color(0xffEDEDED),
                             borderRadius: BorderRadius.circular(100),
                             onPressed: () {},
-                            child: Text("S"),
+                            child: Text("M"),
                           ),
                         ),
-                        Text("Small"),
+                        Text("Medium"),
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        SizedBox(
+                          height: 75,
+                          width: 75,
+                          child: CupertinoButton(
+                            color: Color(0xffEDEDED),
+                            borderRadius: BorderRadius.circular(100),
+                            onPressed: () {},
+                            child: Text("L"),
+                          ),
+                        ),
+                        Text("Large"),
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        SizedBox(
+                          height: 75,
+                          width: 75,
+                          child: CupertinoButton(
+                            color: Color(0xffEDEDED),
+                            borderRadius: BorderRadius.circular(100),
+                            onPressed: () {},
+                            child: Text("XL"),
+                          ),
+                        ),
+                        Text("Extra Large"),
                       ],
                     ),
                   ],
